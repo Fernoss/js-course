@@ -53,8 +53,9 @@ const newPassport = function(person) {
 newPassport(fernoss);
 checkIn(flight, fernoss);
 */
+////////////////////////////////////////////////////////////////////
 // Higher order function, lecture 3
-
+/*
 const oneWord = function(str) {
     return str.replace(/ /g, '').toLowerCase();
 };
@@ -77,3 +78,79 @@ console.log(' ');
 transformer('JavaScript is the best!', oneWord)
 
 // JS uses callback all the time
+const highFive = function () {
+    console.log('👋');
+};
+
+document.body.addEventListener('click', highFive);
+*/
+////////////////////////////////////////////////////////////////////
+// lecture 4
+// traditional way (arrow way on the next)
+// const greet = function(greeting) {
+//     return function(name) {
+//         console.log(`${greeting} ${name}`);
+//     }
+// }
+
+// function is value in JS
+// const greeterHey = greet('Hey');
+// greeterHey('Joonas');
+// greeterHey('Jonas');
+
+// greet('Hello')('Joonas');
+// Challenge arrow
+// const greetArr = greeting =>
+//     name => console.log(`${greeting} ${name}`);
+
+// const greeter = greetArr('Hello');
+// greeter('Joonas');
+////////////////////////////////////////////////////////////////////
+/*
+// The call and apply Methods
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    // book: function() {} - old way
+    book(flightNum, name) {
+      console.log(
+        `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+      );
+      this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+    },
+  };
+
+lufthansa.book(239, 'Fernos Santos');
+console.log(lufthansa);
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+  };
+  
+  const book = lufthansa.book;
+  
+  // Does NOT work
+  // book(23, 'Sarah Williams');
+  
+  // Call method
+  book.call(eurowings, 23, 'Sarah Williams');
+  console.log(eurowings);
+
+  book.call(lufthansa, 41, 'Mary Cooper')
+  console.log(lufthansa);
+
+  // Apply method - not used that much nowadays
+  const flightData = [583, 'George Cooper'];
+  book.apply(eurowings, flightData);
+  console.log(eurowings);
+
+  //spreading the array for call method
+  book.call(lufthansa, ...flightData);
+  console.log(lufthansa);
+  */
+ ////////////////////////////////////////////////////////////////////
+ // Lecture 5, Bind method
+ 
